@@ -37,6 +37,7 @@ main>section>div>div.circle{
     text-align: center;
     line-height: 40px;
     cursor: pointer;
+    transition:all 1s ease;
 }
 
 main>section>div>div.circle2{
@@ -87,4 +88,10 @@ main>section>div.right-down-paddle{
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
+}
+div.main-chart{
+    width: 600px;
+    height:400px; 
+    border: 1px solid black;
+    margin-top: 50px;
 }
