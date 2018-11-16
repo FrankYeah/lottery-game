@@ -28,7 +28,7 @@ main>section>div.left-up-paddle{
 }
 
 main>section>div>div.circle{
-    background: url(circle.png);
+    background: url(c-01.png);
     background-repeat: no-repeat;
     background-size: cover;
     width: 40px;
@@ -40,7 +40,7 @@ main>section>div>div.circle{
 }
 
 main>section>div>div.circle2{
-    background: url(circle.png);
+    background: url(c-01.png);
     background-repeat: no-repeat;
     background-size: cover;
     width: 40px;
