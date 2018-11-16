@@ -1,0 +1,90 @@
+main.main-lottery{
+    width: 560px;
+    height: 350px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-evenly;
+    border-radius: 10px;
+}
+
+main>section.left-paddle{
+    width: 250px;
+    height: 300px;
+    margin: auto 0;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+main>section>div.left-up-paddle{
+    width: 250px;
+    height: 200px;
+    border: 1px solid black;
+    border-radius: 18px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+main>section>div>div.circle{
+    background: url(circle.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    margin: 4px 10px 4px 10px;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+}
+
+main>section>div>div.circle2{
+    background: url(circle.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    margin: 4px 10px 4px 10px;
+    text-align: center;
+    line-height: 40px;
+}
+
+main>section>div.left-down-paddle{
+    width: 250px;
+    height: 50px;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+}
+
+main>section.right-paddle{
+    width: 250px;
+    height: 300px;
+    margin: auto 0;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+main>section>div.right-up-paddle{
+    width: 250px;
+    height: 50px;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+main>section>div.right-down-paddle{
+    width: 250px;
+    height: 200px;
+    border: 1px solid black;
+    border-radius: 18px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
