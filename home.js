@@ -137,8 +137,15 @@ app.drawChart = function(){
         series: [{
             name: 'lottery number',
             type: 'bar',
-            data: selectCount
-        }]
+            data: selectCount,
+            animationDelay: function (idx) {
+                return idx * 10;
+            }
+        }],
+        animationEasing: 'elasticOut',
+        animationDelayUpdate: function (idx) {
+            return idx * 5;
+        }
     };
     myChart.setOption(option);
 
@@ -160,6 +167,9 @@ app.drawChart = function(){
                 type: 'pie',
                 radius: '55%',
                 data:secondChart,
+                animationDelay: function (idx) {
+                    return idx * 10;
+                },
                 roseType: 'radius',
                 label: {
                     normal: {
@@ -182,6 +192,10 @@ app.drawChart = function(){
                     }
                 }              
             }
-        ]
+        ],
+        animationEasing: 'elasticOut',
+        animationDelayUpdate: function (idx) {
+            return idx * 5;
+        }
     })
 }
