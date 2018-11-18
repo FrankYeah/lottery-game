@@ -38,7 +38,6 @@ restart.addEventListener('click', function(){
 // select lettery number
  for(let i=0; i<element.length; i++){
     element[i].addEventListener('click', function(){
-
         if(numSelect.length < 3 && historySelect.length<16 && element[i].textContent != numSelect[0] && element[i].textContent != numSelect[1]){
             numSelect.push(element[i].textContent);
             element[i].style.background = `url("c-02.png") 0% 0% / cover no-repeat`;
@@ -46,7 +45,6 @@ restart.addEventListener('click', function(){
             numSelect.push(element[i].textContent);
             element[i].style.background = `url("c-03.png") 0% 0% / cover no-repeat`;
         }
-
     });   
  }
 
@@ -56,7 +54,6 @@ restart.addEventListener('click', function(){
     if(numSelect.length == 4){
         document.getElementById('rightUpPaddle').innerHTML = '';
         for(let i=0; i<4 ; i++){
-
             chartAll.push(Number(numSelect[i]));
             if(chartAll.length>20){
                 chartAll.shift();
@@ -125,8 +122,6 @@ app.drawChart = function(){
 
     // draw first chart 
     var myChart = echarts.init(document.getElementById('main'));
-
-    // 指定图表的配置项和数据
     var option = {
         title: {
             text: 'Win rate'
@@ -145,8 +140,6 @@ app.drawChart = function(){
             data: selectCount
         }]
     };
-    
-    // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
 
 //-----------------------------------------------------------------------------------------------------//
@@ -159,9 +152,6 @@ app.drawChart = function(){
         secondChart.push(secondObj);
         secondObj ={value:0,name:''};
     }
-
-
-    // 使用刚指定的配置项和数据显示图表。
     mainTwo.setOption({
         backgroundColor: '#2c343c',
         series : [
@@ -170,7 +160,7 @@ app.drawChart = function(){
                 type: 'pie',
                 radius: '55%',
                 data:secondChart,
-                roseType: 'angle',
+                roseType: 'radius',
                 label: {
                     normal: {
                         textStyle: {
