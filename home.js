@@ -8,8 +8,34 @@ let selectCount =[];
 let secondObj ={value:0,name:''};
 let secondChart = [];
 
-// select lettery number
+// rechoose
+const rechoose = document.getElementById('rechoose');
+const restart = document.getElementById('restart');
 let element= document.getElementsByClassName('circle');
+rechoose.addEventListener('click', function(){
+    for(let i=0; i<element.length; i++){
+        numSelect =[];
+        element[i].style.background = `url("c-01.png") 0% 0% / cover no-repeat`;
+     }
+})
+
+// restart
+restart.addEventListener('click', function(){
+    numSelect = [];
+    historySelect = [];
+    chartSelect = [];
+    chartAll = [];
+    selectValue =[];
+    selectCount =[];
+    secondObj ={value:0,name:''};
+    secondChart = [];
+    document.getElementById('rightUpPaddle').innerHTML = '';
+    document.getElementById('rihtDownPaddle').innerHTML = '';
+    app.drawChart();
+})
+
+
+// select lettery number
  for(let i=0; i<element.length; i++){
     element[i].addEventListener('click', function(){
 
@@ -26,7 +52,6 @@ let element= document.getElementsByClassName('circle');
 
  app.draw = document.getElementsByClassName('left-down-paddle')[0];
  app.draw.addEventListener('click', function(){
-
     // draw current on 
     if(numSelect.length == 4){
         document.getElementById('rightUpPaddle').innerHTML = '';
