@@ -1,5 +1,6 @@
 let app = {};
 let numSelect = [];
+let numToString;
 let historySelect = [];
 let chartSelect = [];
 let chartAll = [];
@@ -8,18 +9,9 @@ let selectCount =[];
 let secondObj ={value:0,name:''};
 let secondChart = [];
 
-// rechoose
-const rechoose = document.getElementById('rechoose');
+// restart
 const restart = document.getElementById('restart');
 let element= document.getElementsByClassName('circle');
-rechoose.addEventListener('click', function(){
-    for(let i=0; i<element.length; i++){
-        numSelect =[];
-        element[i].style.background = `url("c-01.png") 0% 0% / cover no-repeat`;
-     }
-})
-
-// restart
 restart.addEventListener('click', function(){
     numSelect = [];
     historySelect = [];
@@ -31,25 +23,25 @@ restart.addEventListener('click', function(){
     secondChart = [];
     document.getElementById('rightUpPaddle').innerHTML = '';
     document.getElementById('rihtDownPaddle').innerHTML = '';
+    for(let i=0; i<16 ; i++){
+        element[i].style.background = `url("c-01.png") 0% 0% / cover no-repeat`;
+    }
     app.drawChart();
 })
 
-
 // select lettery number
- for(let i=0; i<element.length; i++){
-    element[i].addEventListener('click', function(){
-        if(numSelect.length < 3 && historySelect.length<16 && element[i].textContent != numSelect[0] && element[i].textContent != numSelect[1]){
-            numSelect.push(element[i].textContent);
-            element[i].style.background = `url("c-02.png") 0% 0% / cover no-repeat`;
-        }else if(numSelect.length == 3 && historySelect.length<16 && element[i].textContent != numSelect[0] && element[i].textContent != numSelect[1] && element[i].textContent != numSelect[2]){
-            numSelect.push(element[i].textContent);
-            element[i].style.background = `url("c-03.png") 0% 0% / cover no-repeat`;
-        }
-    });   
- }
-
  app.draw = document.getElementsByClassName('left-down-paddle')[0];
  app.draw.addEventListener('click', function(){
+    for(let i=0; i<16 ; i++){
+        element[i].style.background = `url("c-01.png") 0% 0% / cover no-repeat`;
+    }
+    app.randomNum();
+    let map1 = numSelect.map(x => x - 1);
+    element[map1[0]].style.background = `url("c-03.png") 0% 0% / cover no-repeat`;
+    element[map1[1]].style.background = `url("c-03.png") 0% 0% / cover no-repeat`;
+    element[map1[2]].style.background = `url("c-03.png") 0% 0% / cover no-repeat`;
+    element[map1[3]].style.background = `url("c-02.png") 0% 0% / cover no-repeat`;
+
     // draw current on 
     if(numSelect.length == 4){
         document.getElementById('rightUpPaddle').innerHTML = '';
@@ -59,18 +51,13 @@ restart.addEventListener('click', function(){
                 chartAll.shift();
             }
             app.drawOn(numSelect[i], 'rightUpPaddle');
-            var select = document.querySelector('.right-up-paddle');
-            var inner = select.querySelectorAll('.circle2');
+            let select = document.querySelector('.right-up-paddle');
+            let inner = select.querySelectorAll('.circle2');
             if(i<3){
-                inner[i].style.background = `url("c-02.png") 0% 0% / cover no-repeat`;
-            }else if(i==3){
                 inner[i].style.background = `url("c-03.png") 0% 0% / cover no-repeat`;
+            }else if(i==3){
+                inner[i].style.background = `url("c-02.png") 0% 0% / cover no-repeat`;
             }
-        }
-        for(let i=0; i<16 ; i++){
-            element[i].style.background = `url(c-01.png)`;
-            element[i].style.backgroundRepeat = `no-repeat`;
-            element[i].style.backgroundSize = `cover`;
         }
         historySelect.push(numSelect);
         numSelect = [];
@@ -90,6 +77,17 @@ restart.addEventListener('click', function(){
     }
     app.drawChart();
  })
+
+ app.randomNum = function(){
+    let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+    let count = arr.length;
+    for (var i = 0; i < 4; i++) {
+        let index = ~~(Math.random() * count) + i;
+        numSelect[i] = arr[index];
+        arr[index] = arr[i];
+        count--;
+    }
+ }
 
  app.drawOn = function(text, append){
     let newElement = document.createElement('div');
