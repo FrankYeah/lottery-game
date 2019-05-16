@@ -9,6 +9,7 @@ let selectCount =[];
 let secondObj ={value:0,name:''};
 let secondChart = [];
 
+console.log('hi')
 // restart
 const restart = document.getElementById('restart');
 let element= document.getElementsByClassName('circle');
